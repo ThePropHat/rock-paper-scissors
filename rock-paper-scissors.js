@@ -13,3 +13,12 @@ function getComputerChoice(){
         return "Paper";
     }
 }
+
+getComputerChoice()
+console.log()
+
+function getHumanChoice(){
+    prompt("Rock, Paper, Scissors?"); //Ask player for choice
+
+}
+getHumanChoice()
