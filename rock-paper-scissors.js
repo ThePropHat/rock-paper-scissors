@@ -15,10 +15,24 @@ function getComputerChoice(){
 }
 
 getComputerChoice()
-console.log()
+console.log(cpuChoice)
 
 function getHumanChoice(){
-    prompt("Rock, Paper, Scissors?"); //Ask player for choice
+    let humanChoice = prompt("Rock, Paper, Scissors?"); //Ask player for choice
+    if (humanChoice === "rock" && cpuChoice === "Rock"){
+        return "You Tied! Zero points!"
+    }
+    else if (humanChoice === "rock" && cpuChoice === "Paper"){
+        return "Paper beats rock! 1 point to CPU!"}
+
+    else if (humanChoice === "rock" && cpuChoice === "Scissors"){
+        return "Rock beats scissors! 1 point to Player!" 
+    }
 
 }
+
 getHumanChoice()
+console.log(humanChoice)
+
+const cpuChoice = getComputerChoice();
+const humanChoice = getHumanChoice();
