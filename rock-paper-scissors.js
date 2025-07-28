@@ -1,35 +1,35 @@
+  let humanScore = 0
+    let cpuScore = 0
 
 function getComputerChoice(){
-    let randomNumber = Math.floor(Math.random() * 3); //Generate random number 0-2
+    let compChoice = Math.floor(Math.random() * 3); //Generate random number 0-2
     
-    if (randomNumber===0){
-        compChoice = "rock";
+    if (compChoice===0){
+        return "rock";
     }
 
-    else if (randomNumber===1){
-        compChoice = "Paper";
+    else if (compChoice===1){
+        return "paper";
     }
    
     else{
-        compChoice = "Scissors";
+        return "scissors";
     }
-    return compChoice
 }
 
 function getHumanChoice(){
-    let humanChoice = prompt("Rock, Paper, Scissors?").toLowerCase(); //Ask player for choice, convert to lower case
-    return humanChoice
+    return prompt("Rock, Paper, Scissors?").toLowerCase(); //Ask player for choice, convert to lower case
 }
 
-function playGame(humanChoice, compChoice){
-    let humanScore = 0
-    let cpuScore = 0
+function playGame(){
+    function playRound(humanChoice, compChoice){
+  
 
-    if (humanChoice === "rock" && compChoice === "scissors" || humanChoice === "scissors" && compChoice === "paper" || humanChoice === "paper" && compChoice === "rock"){
+    if ((humanChoice === "rock" && compChoice === "scissors") || (humanChoice === "scissors" && compChoice === "paper") || (humanChoice === "paper" && compChoice === "rock")){
         console.log(`${humanChoice} beats ${compChoice}! You get 1 point!`)
         ++humanScore;}
 
-    else if (humanChoice === "scissors" && compChoice === "rock" || humanChoice === "paper" && compChoice === "scissors" || humanChoice === "rock" && compChoice === "paper"){
+    else if ((humanChoice === "scissors" && compChoice === "rock") || (humanChoice === "paper" && compChoice === "scissors") || (humanChoice === "rock" && compChoice === "paper")){
         console.log(`${humanChoice} is beat by ${compChoice}! Computer gets 1 point!`)
         ++cpuScore;}
 
@@ -37,9 +37,21 @@ function playGame(humanChoice, compChoice){
     console.log(`${humanChoice} is the same as ${compChoice}! No points awarded!`)}
 
    else{
-    console.log("Please type rock, paper, or scissors.")
-   }
+    console.log("Please type rock, paper, or scissors.")}
 
 }
+        const compChoice = getComputerChoice();
+        const humanChoice = getHumanChoice();
+        playRound(compChoice, humanChoice);
+    console.log(`Your score is ${humanScore} and computer score is ${cpuScore}`)
+    if ((cpuScore === 3) || (humanScore === 3)){
+        console.log("Winner!")
+    }
 
+};
 
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
